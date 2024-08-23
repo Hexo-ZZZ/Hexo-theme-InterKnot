@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/page.css" id="page-style">
+<script>
+    if (window.location.search.match(/window=true/gi)) {
+        document.getElementById("page-style").href = "/css/page-window.css";
+    }
+</script>
+<main>
+    <div class="left-headimg" style="display: none;">
+        <img src="<%- page.headimg || '/img/default-cover.svg' %>" alt="<%- page.title %>">
+    </div>
+    <div class="page-info">
+        <h1 class="page-title"><%- page.title %></h1>
+    </div>
+    <div class="card page-content">
+        <%- page.content %>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.location.search.match(/window=true/gi)) {
+                document.getElementsByClassName("left-headimg")[0].style.display = "flex";
+                document.querySelector(".page-info").style.display = "none";
+                document.querySelector(".card.page-content").innerHTML = document.querySelector(".page-info .page-title").outerHTML + document.querySelector(".page-content").innerHTML;
+                let header = document.querySelector("body>header")
+                header.innerHTML = `<img src="<%= theme.personal.avatar||'/img/avatar/image.png' %>" alt="Avatar" class="avatar"
+            onerror="this.src='/img/avatar/image.png'"><div class="right"><span class="author"><%= config.author||"传奇绳匠" %></span></div>`
+            } else {
+                document.getElementsByClassName("bg")[0].style.backgroundImage = "url('<%- page.headimg || '/img/bg.png' %>')<%- (page.headimg ? ', linear-gradient(#0001, #000 50%)':'') %>";
+            }
+        })
+    </script>
+</main>

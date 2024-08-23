@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/css/friends.css">
+<main>
+    <div class="left">
+        <h2 class="name">???</h2>
+        <img src="/img/avatar/image.png" class="avatar" alt="Avatar">
+    </div>
+    <div class="right"<%- (site.data.friends.friends.length/3<=6)?' style="overflow:hidden;height:100%;"':"" %>>
+        <div class="cols">
+            <div class="col">
+                <%for (let i=0; i < site.data.friends.friends.length; i +=1) { if ((i % 3)===0) { %>
+                    <a class="card" href="<%= site.data.friends.friends[i].url %>">
+                        <div class="avatar">
+                            <img src="<%= site.data.friends.friends[i].avatar %>" alt="Avatar">
+                        </div>
+                        <div class="name">
+                            <%= site.data.friends.friends[i].name %>
+                        </div>
+                    </a>
+                    <% } } %>
+                        <%for (let i=0; i < ((site.data.friends.friends.length/3<=5)?5:0); i +=1) { %>
+                            <div class="card empty">
+                                <img src="/img/empty.svg" alt="Empty">
+                            </div>
+                            <% } %>
+            </div>
+            <div class="col">
+                <%for (let i=0; i < site.data.friends.friends.length; i +=1) { if ((i % 3)===1) { %>
+                    <a class="card" href="<%= site.data.friends.friends[i].url %>">
+                        <div class="avatar">
+                            <img src="<%= site.data.friends.friends[i].avatar %>" alt="Avatar">
+                        </div>
+                        <div class="name">
+                            <%= site.data.friends.friends[i].name %>
+                        </div>
+                    </a>
+                    <% } } %>
+                        <%for (let i=0; i < ((site.data.friends.friends.length/3<=6)?6:0); i +=1) { %>
+                            <div class="card empty">
+                                <img src="/img/empty.svg" alt="Empty">
+                            </div>
+                            <% } %>
+            </div>
+            <div class="col">
+                <%for (let i=0; i < site.data.friends.friends.length; i +=1) { if ((i % 3)===2) { %>
+                    <a class="card" href="<%= site.data.friends.friends[i].url %>">
+                        <div class="avatar">
+                            <img src="<%= site.data.friends.friends[i].avatar %>" alt="Avatar">
+                        </div>
+                        <div class="name">
+                            <%= site.data.friends.friends[i].name %>
+                        </div>
+                    </a>
+                    <% } } %>
+                        <%for (let i=0; i <((site.data.friends.friends.length/3<=5)?5:0); i +=1) { %>
+                            <div class="card empty">
+                                <img src="/img/empty.svg" alt="Empty">
+                            </div>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+    <script src="/js/friends.js"></script>
+</main>

@@ -1,0 +1,316 @@
+:root,
+body {
+    margin: 0;
+    background-color: #000;
+}
+
+.loading {
+    position: fixed;
+    z-index: 99999999999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+header {
+    height: 90px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    width: 100%;
+    user-select: none;
+}
+
+main {
+    margin-top: 90px;
+}
+
+header .personal {
+    background: rgb(20, 20, 20);
+    background: linear-gradient(#212121, #141414);
+    height: 60px;
+    min-width: 300px;
+    width: max-content;
+    margin: 10px;
+    border-radius: 30px;
+    box-shadow: inset 0 2px 2px 1px #313431, inset 0 -2px 2px 3px #181818;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+header .personal .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: calc(100% - 130px);
+}
+
+header .personal img.avatar {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: 1px solid #000;
+    margin-left: 5px;
+}
+
+header .personal .name>a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+header .personal .name {
+    margin: 0;
+    margin-bottom: 2px;
+    height: max-content;
+    line-height: unset;
+    display: flex;
+}
+
+header .personal .creditScore {
+    width: 100%;
+    box-shadow: inset 0 2px 2px #131313, inset 0 -2px 2px #262626;
+    height: 15px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    position: relative;
+}
+
+header .personal .creditScore .score {
+    margin-left: 5px;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    z-index: 2;
+}
+
+header .personal .creditScore .progressBar {
+    background: #1FA2FF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4a6cf6, #2bbafe, #A5FECB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4a6cf6, #2bbafe, #A5FECB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 100%;
+    border-radius: 30px;
+    width: calc(900 / 1200 * 100%);
+    display: block;
+    z-index: 1;
+}
+
+header .personal .level {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 20px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+
+header .personal .level .levelText {
+    font-size: 14px;
+    color: #7e7e7e;
+}
+
+header .personal .level .levelNum {
+    letter-spacing: -2px;
+}
+
+header .tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    background-color: #060606;
+    padding: 5px;
+    margin: 15px;
+    box-shadow: inset 0 0 2px 4px #313131;
+    border-radius: 50px;
+    background-image: linear-gradient(#000 8px, transparent 0), linear-gradient(90deg, #0f0f0f 2px, transparent 0);
+    background-size: 10px 10px;
+}
+
+header .tabs .tab {
+    padding: 10px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    position: relative;
+
+}
+
+header .tabs .tab a {
+    color: #fff;
+    text-decoration: none;
+    z-index: 1;
+    position: relative;
+    text-wrap: nowrap;
+}
+
+header .tabs .tab.choiced a {
+    color: #000;
+}
+
+header .tabs .tab.choiced::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    transform: skew(-27deg);
+    top: -2px;
+    right: 10%;
+    z-index: 0;
+    border-radius: 10px 15px;
+    animation: tab-color 1s linear infinite alternate, tab-size .6s cubic-bezier(.35, .7, 0, .8) infinite alternate;
+}
+
+header .tabs .tab.choiced:first-child:after {
+    right: 0;
+}
+
+header .tabs .tab.choiced:last-child:after {
+    left: 0;
+    right: unset;
+}
+
+header .tabs .tab.choiced:first-child::before {
+    content: "";
+    display: block;
+    width: 60%;
+    border-radius: 100px;
+    height: 100%;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    animation: tab-color 1s linear infinite alternate, tab-size .6s cubic-bezier(.35, .7, 0, .8) infinite alternate;
+}
+
+header .tabs .tab.choiced:last-child::before {
+    content: "";
+    display: block;
+    width: 60%;
+    border-radius: 100px;
+    height: 100%;
+    position: absolute;
+    top: -2px;
+    right: 0;
+    animation: tab-color 1s linear infinite alternate, tab-size .6s cubic-bezier(.35, .7, 0, .8) infinite alternate;
+}
+
+@keyframes tab-size {
+    0% {
+        scale: 1.3
+    }
+
+    to {
+        scale: 1.5
+    }
+}
+
+@keyframes tab-color {
+    0% {
+        background: #fbfe00
+    }
+
+    to {
+        background: #dcfe00
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: max-content;
+    }
+
+    header .tabs {
+        position: relative;
+    }
+}
+
+@media (min-width: 1200px) {
+    header .personal {
+        transform: scale(1.2);
+        margin-left: 40px;
+    }
+
+    header {
+        height: 100px;
+    }
+
+    main {
+        margin-top: 100px;
+    }
+
+    header .tabs {
+        transform: scale(1.1);
+        right: 20px;
+        margin: 20px;
+    }
+}
+
+.bg {
+    background-image: url(/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes _0kd {
+    0% {
+        bottom: -50%;
+        left: 0;
+        width: 100vw;
+        height: 100vw;
+    }
+
+    to {
+        bottom: 0%;
+        left: -40vw;
+        width: 200vw;
+        height: 100vw;
+    }
+}
+
+._0kd {
+    position: fixed;
+    background: #000;
+    z-index: 9999999999;
+    transform: translateY(50%);
+    border-radius: 100%;
+    border: 30px solid #0050fe;
+    animation: _0kd 1s;
+    display: none;
+    animation-play-state: paused;
+}

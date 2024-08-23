@@ -1,0 +1,110 @@
+main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+main .list {
+    display: flex;
+    width: max-content;
+    position: relative;
+    height: max-content;
+}
+
+main .card {
+    margin: 8px;
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border: 5px solid #000;
+    background: #222;
+    color: #000;
+    width: 256px;
+    transition: top .5s, left .5s;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+
+main .card:hover {
+    animation: border-color-4e4dd17e 1s linear .3s infinite alternate;
+    border-color: #fbfe00;
+}
+
+main .card .post {
+    padding: 15px;
+}
+
+main .card .headimg {
+    width: 100%;
+    height: max-content;
+}
+
+main .card .title {
+    color: #fff;
+    font-size: 15px;
+    margin: 3px 0;
+}
+
+main .card .post-content {
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: #b3b3b1;
+    font-size: 14px;
+}
+
+main .card .pin {
+    border-color: #0af;
+}
+
+.window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 99999999999;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, #ffffff33 0, #ffffff33 25%, transparent 25%, transparent 50%, #ffffff33 50%, #ffffff33 75%, transparent 75%, transparent);
+    background-size: 8px 8px;
+}
+
+.window-content {
+    box-shadow: 0 0 0 5px #656565a3;
+    border: 5px solid #000;
+    height: calc(100% - 150px);
+    width: calc(100% - 100px);
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-top-right-radius: 0;
+    position: relative;
+}
+
+.window-close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+}
+
+.window-close svg {
+    width: 100px;
+    height: 100px;
+}
+
+.window-frame {
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border: 0;
+    background-color: #121212;
+}

@@ -1,0 +1,28 @@
+<header>
+    <div class="personal">
+        <img src="<%= theme.personal.avatar||'/img/avatar/image.png' %>" alt="Avatar" class="avatar"
+            onerror="this.src='/img/avatar/image.png'">
+        <div class="right">
+            <<%= is_home()?"h1":"h2" %> class="name"><a href="/">
+                    <%= config.author||"传奇绳匠" %>
+                </a></<%= is_home()?"h1":"h2" %>>
+            <span class="creditScore">
+                <span class="score">900/1200</span>
+                <span class="progressBar" data-score="900/1200"></span>
+            </span>
+        </div>
+        <div class="level">
+            <span class="levelNum">06</span>
+            <span class="levelText">LEVEL</span>
+        </div>
+    </div>
+    <div class="tabs">
+        <% for (name in theme.menu) { %>
+            <span class="tab<%= (url_for(theme.menu[name]) ===url_for( page.path)||url_for(page.path.replace(/index\.html$/, '')) === url_for(theme.menu[name])) ? ' choiced': '' %>">
+                <a href="<%- url_for(theme.menu[name]) %>">
+                    <%= name %>
+                </a>
+            </span>
+            <% } %>
+    </div>
+</header>

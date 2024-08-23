@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/page.css" id="page-style">
+<main>
+    <%if (page.layout==="friends" ) {%>
+        <%- partial("friends.ejs") %>
+            <%} else {%>
+                <div class="page-info">
+                    <h1 class="page-title"><%- page.title %></h1>
+                </div>
+                <div class="card page-content">
+                    <%- page.content %>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        document.getElementsByClassName("bg")[0].style.backgroundImage = "url('<%- page.headimg || '/img/bg.png' %>')<%- (page.headimg ? ', linear-gradient(#0001, #000 50%)':'') %>";
+                    })
+                </script>
+                <%}%>
+</main>
